@@ -19,8 +19,15 @@ namespace StudentReportGenerator
     public partial class MainForm : Form
     {
         string studentName = "Example";
-        Grade studentCurrentGrade = Grade.Level4C;
-        Grade studentTargetGrade = Grade.Level4C;
+
+        Dictionary<string, int> gradeScores = new Dictionary<string, int>() {
+            {"4C",0}, {"4B",0}, {"4A",0}, {"5C",0}, {"5B",0}, {"5A",0}, {"6C",0}, {"6B",0}, {"6A",0},
+            {"7C",0}, {"7B",0}, {"7A",0}, {"8C",0}, {"8B",0}, {"8A",0}, {"9C",0}, {"9B",0}, {"9A",0}
+        };
+        int studentCurrentGrade;
+        int studentTargetGrade;
+        // Grade studentCurrentGrade = Grade.Level4C;
+        // Grade studentTargetGrade = Grade.Level4C;
         string currentGradeText = "4C";
         string targetGradeText = "4C";
 
@@ -80,25 +87,26 @@ namespace StudentReportGenerator
         {
             currentGradeText = currentGrade.SelectedItem.ToString();
 
-            studentCurrentGrade = Grade.Level4C;
+            studentCurrentGrade = gradeScores[currentGradeText];
+            // studentCurrentGrade = Grade.Level4C;
 
-            if (currentGradeText == "4B") studentCurrentGrade += 1;
-            else if (currentGradeText == "4A") studentCurrentGrade += 2;
-            else if (currentGradeText == "5C") studentCurrentGrade += 3;
-            else if (currentGradeText == "5B") studentCurrentGrade += 4;
-            else if (currentGradeText == "5A") studentCurrentGrade += 5;
-            else if (currentGradeText == "6C") studentCurrentGrade += 6;
-            else if (currentGradeText == "6B") studentCurrentGrade += 7;
-            else if (currentGradeText == "6A") studentCurrentGrade += 8;
-            else if (currentGradeText == "7C") studentCurrentGrade += 9;
-            else if (currentGradeText == "7B") studentCurrentGrade += 10;
-            else if (currentGradeText == "7A") studentCurrentGrade += 11;
-            else if (currentGradeText == "8C") studentCurrentGrade += 12;
-            else if (currentGradeText == "8B") studentCurrentGrade += 13;
-            else if (currentGradeText == "8A") studentCurrentGrade += 14;
-            else if (currentGradeText == "9C") studentCurrentGrade += 15;
-            else if (currentGradeText == "9B") studentCurrentGrade += 16;
-            else if (currentGradeText == "9A") studentCurrentGrade += 17;
+            // if (currentGradeText == "4B") studentCurrentGrade += 1;
+            // else if (currentGradeText == "4A") studentCurrentGrade += 2;
+            // else if (currentGradeText == "5C") studentCurrentGrade += 3;
+            // else if (currentGradeText == "5B") studentCurrentGrade += 4;
+            // else if (currentGradeText == "5A") studentCurrentGrade += 5;
+            // else if (currentGradeText == "6C") studentCurrentGrade += 6;
+            // else if (currentGradeText == "6B") studentCurrentGrade += 7;
+            // else if (currentGradeText == "6A") studentCurrentGrade += 8;
+            // else if (currentGradeText == "7C") studentCurrentGrade += 9;
+            // else if (currentGradeText == "7B") studentCurrentGrade += 10;
+            // else if (currentGradeText == "7A") studentCurrentGrade += 11;
+            // else if (currentGradeText == "8C") studentCurrentGrade += 12;
+            // else if (currentGradeText == "8B") studentCurrentGrade += 13;
+            // else if (currentGradeText == "8A") studentCurrentGrade += 14;
+            // else if (currentGradeText == "9C") studentCurrentGrade += 15;
+            // else if (currentGradeText == "9B") studentCurrentGrade += 16;
+            // else if (currentGradeText == "9A") studentCurrentGrade += 17;
 
             UpdateReport();
         }
@@ -107,25 +115,27 @@ namespace StudentReportGenerator
         {
             targetGradeText = targetGrade.SelectedItem.ToString();
 
-            studentTargetGrade = Grade.Level4C;
+            studentTargetGrade = gradeScores[targetGradeText];
+            
+            // studentTargetGrade = Grade.Level4C;
 
-            if (targetGradeText == "4B") studentTargetGrade += 1;
-            else if (targetGradeText == "4A") studentTargetGrade += 2;
-            else if (targetGradeText == "5C") studentTargetGrade += 3;
-            else if (targetGradeText == "5B") studentTargetGrade += 4;
-            else if (targetGradeText == "5A") studentTargetGrade += 5;
-            else if (targetGradeText == "6C") studentTargetGrade += 6;
-            else if (targetGradeText == "6B") studentTargetGrade += 7;
-            else if (targetGradeText == "6A") studentTargetGrade += 8;
-            else if (targetGradeText == "7C") studentTargetGrade += 9;
-            else if (targetGradeText == "7B") studentTargetGrade += 10;
-            else if (targetGradeText == "7A") studentTargetGrade += 11;
-            else if (targetGradeText == "8C") studentTargetGrade += 12;
-            else if (targetGradeText == "8B") studentTargetGrade += 13;
-            else if (targetGradeText == "8A") studentTargetGrade += 14;
-            else if (targetGradeText == "9C") studentTargetGrade += 15;
-            else if (targetGradeText == "9B") studentTargetGrade += 16;
-            else if (targetGradeText == "9A") studentTargetGrade += 17;
+            // if (targetGradeText == "4B") studentTargetGrade += 1;
+            // else if (targetGradeText == "4A") studentTargetGrade += 2;
+            // else if (targetGradeText == "5C") studentTargetGrade += 3;
+            // else if (targetGradeText == "5B") studentTargetGrade += 4;
+            // else if (targetGradeText == "5A") studentTargetGrade += 5;
+            // else if (targetGradeText == "6C") studentTargetGrade += 6;
+            // else if (targetGradeText == "6B") studentTargetGrade += 7;
+            // else if (targetGradeText == "6A") studentTargetGrade += 8;
+            // else if (targetGradeText == "7C") studentTargetGrade += 9;
+            // else if (targetGradeText == "7B") studentTargetGrade += 10;
+            // else if (targetGradeText == "7A") studentTargetGrade += 11;
+            // else if (targetGradeText == "8C") studentTargetGrade += 12;
+            // else if (targetGradeText == "8B") studentTargetGrade += 13;
+            // else if (targetGradeText == "8A") studentTargetGrade += 14;
+            // else if (targetGradeText == "9C") studentTargetGrade += 15;
+            // else if (targetGradeText == "9B") studentTargetGrade += 16;
+            // else if (targetGradeText == "9A") studentTargetGrade += 17;
 
             UpdateReport();
         }
