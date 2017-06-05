@@ -156,28 +156,35 @@ namespace StudentReportGenerator
 
         private void UpdateReport()
         {
-            currentReport.Text = "" + studentName + " is a " + studentEngagement + " member of " + lowerHisHer + " class. ";
+            StringBuilder sb = new StringBuilder();
+            
+            sb.Append(studentName + " is a " + studentEngagement + " member of " + lowerHisHer + " class. ");
 
-            currentReport.Text += capitalHeShe + " is " + studentBehaviour1 + ", ";
+            sb.Append(capitalHeShe + " is " + studentBehaviour1 + ", ");
 
-            currentReport.Text += "\n\n" + studentName + " is currently working at a level " + currentGradeText + " which is ";
-
-            if (studentCurrentGrade < studentTargetGrade) currentReport.Text += "bellow ";
-            else if (studentCurrentGrade == studentTargetGrade) currentReport.Text += "on ";
-            else currentReport.Text += "above ";
-
-            currentReport.Text += lowerHisHer + " target for the year. ";
+            sb.Append("\n\n" + studentName + " is currently working at a level " + currentGradeText + " which is ");
 
             if (studentCurrentGrade < studentTargetGrade)
-                currentReport.Text += "However, with some extremely hard work " + lowerHeShe + " has the potential to achieve " + lowerHisHer + " target of " + targetGradeText + ". ";
+                sb.Append("below ");
+            else if (studentCurrentGrade == studentTargetGrade)
+                sb.Append("on ");
+            else
+                sb.Append("above ");
+
+            sb.Append(lowerHisHer + " target for the year. ");
+
+            if (studentCurrentGrade < studentTargetGrade)
+                sb.Append("However, with some extremely hard work " + lowerHeShe + " has the potential to achieve " + lowerHisHer + " target of " + targetGradeText + ". ");
 
             else if (studentCurrentGrade == studentTargetGrade)
-                currentReport.Text += "If " + lowerHeShe + " stays consistent in " + lowerHisHer + " performance, there is no doubt " + lowerHeShe + " can aim higher than a " + targetGradeText + ". ";
+                sb.Append("If " + lowerHeShe + " stays consistent in " + lowerHisHer + " performance, there is no doubt " + lowerHeShe + " can aim higher than a " + targetGradeText + ". ");
 
             else
-                currentReport.Text += "With some more attention to " + lowerHisHer + " classwork, " + lowerHeShe + " can easily begin to accel in Computing. ";
+                sb.Append("With some more attention to " + lowerHisHer + " classwork, " + lowerHeShe + " can easily begin to accel in Computing. ");
 
-            currentReport.Text += "\n\n";
+            sb.Append("\n\n");
+
+            currentReport.Text = sb.ToString();
         }
 
         private void AddReportToList(object sender, EventArgs e)
