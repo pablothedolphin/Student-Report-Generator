@@ -50,6 +50,7 @@
             this.behaviour2 = new System.Windows.Forms.ComboBox();
             this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
             this.SelectFileBtn = new System.Windows.Forms.Button();
+            this.recordNumLbl = new System.Windows.Forms.Label();
             genderLabel = new System.Windows.Forms.Label();
             studentNameLabel = new System.Windows.Forms.Label();
             currentGradeLabel = new System.Windows.Forms.Label();
@@ -64,7 +65,7 @@
             // 
             genderLabel.AutoSize = true;
             genderLabel.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            genderLabel.Location = new System.Drawing.Point(212, 27);
+            genderLabel.Location = new System.Drawing.Point(212, 63);
             genderLabel.Name = "genderLabel";
             genderLabel.Size = new System.Drawing.Size(48, 13);
             genderLabel.TabIndex = 2;
@@ -74,7 +75,7 @@
             // 
             studentNameLabel.AutoSize = true;
             studentNameLabel.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            studentNameLabel.Location = new System.Drawing.Point(38, 27);
+            studentNameLabel.Location = new System.Drawing.Point(38, 63);
             studentNameLabel.Name = "studentNameLabel";
             studentNameLabel.Size = new System.Drawing.Size(41, 13);
             studentNameLabel.TabIndex = 4;
@@ -84,7 +85,7 @@
             // 
             currentGradeLabel.AutoSize = true;
             currentGradeLabel.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            currentGradeLabel.Location = new System.Drawing.Point(399, 27);
+            currentGradeLabel.Location = new System.Drawing.Point(399, 63);
             currentGradeLabel.Name = "currentGradeLabel";
             currentGradeLabel.Size = new System.Drawing.Size(79, 13);
             currentGradeLabel.TabIndex = 8;
@@ -105,7 +106,7 @@
             // 
             engagementLabel.AutoSize = true;
             engagementLabel.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            engagementLabel.Location = new System.Drawing.Point(38, 68);
+            engagementLabel.Location = new System.Drawing.Point(38, 104);
             engagementLabel.Name = "engagementLabel";
             engagementLabel.Size = new System.Drawing.Size(73, 13);
             engagementLabel.TabIndex = 13;
@@ -115,7 +116,7 @@
             // 
             behaviour1Label.AutoSize = true;
             behaviour1Label.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            behaviour1Label.Location = new System.Drawing.Point(230, 68);
+            behaviour1Label.Location = new System.Drawing.Point(230, 104);
             behaviour1Label.Name = "behaviour1Label";
             behaviour1Label.Size = new System.Drawing.Size(70, 13);
             behaviour1Label.TabIndex = 14;
@@ -136,7 +137,7 @@
             // 
             behaviourLabel2.AutoSize = true;
             behaviourLabel2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            behaviourLabel2.Location = new System.Drawing.Point(522, 68);
+            behaviourLabel2.Location = new System.Drawing.Point(522, 104);
             behaviourLabel2.Name = "behaviourLabel2";
             behaviourLabel2.Size = new System.Drawing.Size(70, 13);
             behaviourLabel2.TabIndex = 104;
@@ -146,7 +147,7 @@
             // 
             this.male.AutoSize = true;
             this.male.Checked = true;
-            this.male.Location = new System.Drawing.Point(331, 25);
+            this.male.Location = new System.Drawing.Point(331, 61);
             this.male.Name = "male";
             this.male.Size = new System.Drawing.Size(48, 17);
             this.male.TabIndex = 1;
@@ -159,7 +160,7 @@
             // female
             // 
             this.female.AutoSize = true;
-            this.female.Location = new System.Drawing.Point(266, 25);
+            this.female.Location = new System.Drawing.Point(266, 61);
             this.female.Name = "female";
             this.female.Size = new System.Drawing.Size(59, 17);
             this.female.TabIndex = 1;
@@ -171,7 +172,7 @@
             // studentNameField
             // 
             this.studentNameField.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.studentNameField.Location = new System.Drawing.Point(85, 27);
+            this.studentNameField.Location = new System.Drawing.Point(85, 63);
             this.studentNameField.Name = "studentNameField";
             this.studentNameField.Size = new System.Drawing.Size(100, 13);
             this.studentNameField.TabIndex = 0;
@@ -210,7 +211,7 @@
             "9C",
             "9B",
             "9A"});
-            this.currentGrade.Location = new System.Drawing.Point(484, 24);
+            this.currentGrade.Location = new System.Drawing.Point(484, 60);
             this.currentGrade.Name = "currentGrade";
             this.currentGrade.Size = new System.Drawing.Size(62, 21);
             this.currentGrade.TabIndex = 2;
@@ -241,7 +242,7 @@
             "9C",
             "9B",
             "9A"});
-            this.targetGrade.Location = new System.Drawing.Point(650, 24);
+            this.targetGrade.Location = new System.Drawing.Point(650, 60);
             this.targetGrade.Name = "targetGrade";
             this.targetGrade.Size = new System.Drawing.Size(62, 21);
             this.targetGrade.TabIndex = 3;
@@ -252,7 +253,7 @@
             // 
             this.targetGradeLabel.AutoSize = true;
             this.targetGradeLabel.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.targetGradeLabel.Location = new System.Drawing.Point(568, 27);
+            this.targetGradeLabel.Location = new System.Drawing.Point(568, 63);
             this.targetGradeLabel.Name = "targetGradeLabel";
             this.targetGradeLabel.Size = new System.Drawing.Size(76, 13);
             this.targetGradeLabel.TabIndex = 9;
@@ -279,7 +280,7 @@
             "very quiet",
             "quiet",
             "very engaged"});
-            this.engagement.Location = new System.Drawing.Point(117, 65);
+            this.engagement.Location = new System.Drawing.Point(117, 101);
             this.engagement.Name = "engagement";
             this.engagement.Size = new System.Drawing.Size(92, 21);
             this.engagement.TabIndex = 4;
@@ -295,7 +296,7 @@
             "rude but sometimes well behaved",
             "polite but sometimes poorly behaved",
             "polite and well behaved"});
-            this.behaviour1.Location = new System.Drawing.Point(306, 65);
+            this.behaviour1.Location = new System.Drawing.Point(306, 101);
             this.behaviour1.Name = "behaviour1";
             this.behaviour1.Size = new System.Drawing.Size(191, 21);
             this.behaviour1.TabIndex = 5;
@@ -316,7 +317,7 @@
             this.behaviour2.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.behaviour2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.behaviour2.FormattingEnabled = true;
-            this.behaviour2.Location = new System.Drawing.Point(598, 65);
+            this.behaviour2.Location = new System.Drawing.Point(598, 101);
             this.behaviour2.Name = "behaviour2";
             this.behaviour2.Size = new System.Drawing.Size(114, 21);
             this.behaviour2.TabIndex = 105;
@@ -327,7 +328,7 @@
             // 
             // SelectFileBtn
             // 
-            this.SelectFileBtn.Location = new System.Drawing.Point(41, 121);
+            this.SelectFileBtn.Location = new System.Drawing.Point(36, 12);
             this.SelectFileBtn.Name = "SelectFileBtn";
             this.SelectFileBtn.Size = new System.Drawing.Size(75, 23);
             this.SelectFileBtn.TabIndex = 106;
@@ -335,11 +336,21 @@
             this.SelectFileBtn.UseVisualStyleBackColor = true;
             this.SelectFileBtn.Click += new System.EventHandler(this.SelectFileBtn_Click);
             // 
+            // recordNumLbl
+            // 
+            this.recordNumLbl.AutoSize = true;
+            this.recordNumLbl.Location = new System.Drawing.Point(130, 17);
+            this.recordNumLbl.Name = "recordNumLbl";
+            this.recordNumLbl.Size = new System.Drawing.Size(55, 13);
+            this.recordNumLbl.TabIndex = 107;
+            this.recordNumLbl.Text = "Record #:";
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(751, 479);
+            this.Controls.Add(this.recordNumLbl);
             this.Controls.Add(this.SelectFileBtn);
             this.Controls.Add(this.behaviour2);
             this.Controls.Add(behaviourLabel2);
@@ -385,6 +396,7 @@
         private System.Windows.Forms.ComboBox behaviour2;
         private System.Windows.Forms.OpenFileDialog openFileDialog1;
         private System.Windows.Forms.Button SelectFileBtn;
+        private System.Windows.Forms.Label recordNumLbl;
     }
 }
 

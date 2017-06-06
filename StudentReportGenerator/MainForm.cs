@@ -34,6 +34,9 @@ namespace StudentReportGenerator
 
         List<string> students = new List<string>();
         List<string> reports = new List<string>();
+        
+
+        private List<StudentData> studentData = new List<StudentData>();
 
         public MainForm()
         {
@@ -210,14 +213,18 @@ namespace StudentReportGenerator
 
         private void SelectFileBtn_Click(object sender, EventArgs e)
         {
+            //opens 'select file' box
             DialogResult result = openFileDialog1.ShowDialog();
+            //if we clicked ok - get the file name, which includes the full file path
             if(result == DialogResult.OK)
             {
                 string filePath = openFileDialog1.FileName;
                 
+                //if it ends in csv then we can look at getting the data, else prompt them to select the right type of file
                 if(filePath.EndsWith(".csv"))
                 {
-                    //ReadFile
+                    CSVReadWriter csvReader = new CSVReadWriter();
+                    studentData = csvReader.GetStudentDataFromCSV(filePath);
                 }
                 else
                 {
@@ -225,5 +232,7 @@ namespace StudentReportGenerator
                 }
             }
         }
+
+
     }
 }
