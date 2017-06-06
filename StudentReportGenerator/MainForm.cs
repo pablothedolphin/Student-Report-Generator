@@ -11,10 +11,6 @@ using System.IO;
 
 namespace StudentReportGenerator
 {
-    public enum Grade
-    {
-        Level4C, Level4B, Level4A, Level5C, Level5B, Level5A, Level6C, Level6B, Level6A, Level7C, Level7B, Level7A, Level8C, Level8B, Level8A, Level9C, Level9B, Level9A
-    };
 
     public partial class MainForm : Form
     {
@@ -208,6 +204,24 @@ namespace StudentReportGenerator
                             myStreamWriter.WriteLine(reportLine[j]);
                         }
                     }
+                }
+            }
+        }
+
+        private void SelectFileBtn_Click(object sender, EventArgs e)
+        {
+            DialogResult result = openFileDialog1.ShowDialog();
+            if(result == DialogResult.OK)
+            {
+                string filePath = openFileDialog1.FileName;
+                
+                if(filePath.EndsWith(".csv"))
+                {
+                    //ReadFile
+                }
+                else
+                {
+                    MessageBox.Show("Select a .csv file", "Wrong File Type Selected", MessageBoxButtons.OK);
                 }
             }
         }

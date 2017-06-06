@@ -48,6 +48,8 @@
             this.behaviour1 = new System.Windows.Forms.ComboBox();
             this.completedReportsLable = new System.Windows.Forms.Label();
             this.behaviour2 = new System.Windows.Forms.ComboBox();
+            this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
+            this.SelectFileBtn = new System.Windows.Forms.Button();
             genderLabel = new System.Windows.Forms.Label();
             studentNameLabel = new System.Windows.Forms.Label();
             currentGradeLabel = new System.Windows.Forms.Label();
@@ -129,6 +131,16 @@
             saveButton.Text = "Save As";
             saveButton.UseVisualStyleBackColor = true;
             saveButton.Click += new System.EventHandler(this.SaveReportsToFile);
+            // 
+            // behaviourLabel2
+            // 
+            behaviourLabel2.AutoSize = true;
+            behaviourLabel2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            behaviourLabel2.Location = new System.Drawing.Point(522, 68);
+            behaviourLabel2.Name = "behaviourLabel2";
+            behaviourLabel2.Size = new System.Drawing.Size(70, 13);
+            behaviourLabel2.TabIndex = 104;
+            behaviourLabel2.Text = "Behaviour 2: ";
             // 
             // male
             // 
@@ -299,16 +311,6 @@
             this.completedReportsLable.TabIndex = 101;
             this.completedReportsLable.Text = "Completed Reports: 0";
             // 
-            // behaviourLabel2
-            // 
-            behaviourLabel2.AutoSize = true;
-            behaviourLabel2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            behaviourLabel2.Location = new System.Drawing.Point(522, 68);
-            behaviourLabel2.Name = "behaviourLabel2";
-            behaviourLabel2.Size = new System.Drawing.Size(70, 13);
-            behaviourLabel2.TabIndex = 104;
-            behaviourLabel2.Text = "Behaviour 2: ";
-            // 
             // behaviour2
             // 
             this.behaviour2.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
@@ -319,11 +321,26 @@
             this.behaviour2.Size = new System.Drawing.Size(114, 21);
             this.behaviour2.TabIndex = 105;
             // 
+            // openFileDialog1
+            // 
+            this.openFileDialog1.FileName = "openFileDialog1";
+            // 
+            // SelectFileBtn
+            // 
+            this.SelectFileBtn.Location = new System.Drawing.Point(41, 121);
+            this.SelectFileBtn.Name = "SelectFileBtn";
+            this.SelectFileBtn.Size = new System.Drawing.Size(75, 23);
+            this.SelectFileBtn.TabIndex = 106;
+            this.SelectFileBtn.Text = "Select File\r\n";
+            this.SelectFileBtn.UseVisualStyleBackColor = true;
+            this.SelectFileBtn.Click += new System.EventHandler(this.SelectFileBtn_Click);
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(751, 479);
+            this.Controls.Add(this.SelectFileBtn);
             this.Controls.Add(this.behaviour2);
             this.Controls.Add(behaviourLabel2);
             this.Controls.Add(saveButton);
@@ -366,6 +383,8 @@
         private System.Windows.Forms.ComboBox behaviour1;
         private System.Windows.Forms.Label completedReportsLable;
         private System.Windows.Forms.ComboBox behaviour2;
+        private System.Windows.Forms.OpenFileDialog openFileDialog1;
+        private System.Windows.Forms.Button SelectFileBtn;
     }
 }
 
