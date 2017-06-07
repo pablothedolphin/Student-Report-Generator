@@ -30,7 +30,6 @@ namespace StudentReportGenerator
         string studentBehaviour1 = "rude and poorly behaved";
         string studenBehaviour2;
 
-        int reportsWritten = 0;
 
         List<string> students = new List<string>();
         List<string> reports = new List<string>();
@@ -178,11 +177,10 @@ namespace StudentReportGenerator
 
         private void AddReportToList(object sender, EventArgs e)
         {
-            reportsWritten++;
-            completedReportsLable.Text = "Completed Reports: " + reportsWritten;
-
             students.Add(studentName);
             reports.Add(currentReport.Text);
+
+            completedReportsLable.Text = "Completed Reports: " + reports.Count;
         }
 
         private void SaveReportsToFile(object sender, EventArgs e)
