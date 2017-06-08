@@ -31,10 +31,6 @@ namespace StudentReportGenerator
         string studenBehaviour2;
 
 
-        List<string> students = new List<string>();
-        List<string> reports = new List<string>();
-        
-
         private List<StudentData> studentData = new List<StudentData>();
         private int currentStudentCounter;
         private int totalStudents;
@@ -181,47 +177,52 @@ namespace StudentReportGenerator
 
         private void AddReportToList(object sender, EventArgs e)
         {
-            students.Add(studentName);
-            reports.Add(currentReport.Text);
 
-            completedReportsLable.Text = "Completed Reports: " + reports.Count;
+            studentData[currentStudentCounter].Report = currentReport.Text;
+            currentStudentCounter++;
+            completedReportsLable.Text = "Completed Reports: " + currentStudentCounter;
+            SetDetailsInForm(currentStudentCounter);
         }
 
         private void SaveReportsToFile(object sender, EventArgs e)
         {
-            SaveFileDialog mySaveFileDialog = new SaveFileDialog();
-            mySaveFileDialog.Filter = "txt files (*.txt)|*.txt";
-            mySaveFileDialog.RestoreDirectory = true;
-
-            if (mySaveFileDialog.ShowDialog() == DialogResult.OK)
+            //checks if all reports have been completed before saving, and gives warning if not
+            if (currentStudentCounter + 1 != totalStudents)
             {
-                using (Stream myStream = File.Open(mySaveFileDialog.FileName, FileMode.Create))
-                using (StreamWriter myStreamWriter = new StreamWriter(myStream))
+                DialogResult result = MessageBox.Show("Not all student reports completed", "Warning", MessageBoxButtons.OKCancel);
+                if (result == DialogResult.OK)
                 {
-                    for (int i = 0; i < reports.Count; i++)
-                    {
-                        myStreamWriter.WriteLine(students[i] + "'s Report:");
-                        myStreamWriter.WriteLine("");
-
-                        string[] reportLine = reports[i].Split('\n');
-                        for (int j = 0; j < reportLine.Length; j++)
-                        {
-                            myStreamWriter.WriteLine(reportLine[j]);
-                        }
-                    }
+                    CSVReadWriter fileWriter = new CSVReadWriter();
+                    // fileWriter.SaveReportsToTextFile(reports);
+                    fileWriter.SaveReportsToCSV(studentData);
                 }
             }
+            else
+            {
+                CSVReadWriter fileWriter = new CSVReadWriter();
+                // fileWriter.SaveReportsToTextFile(reports);
+                fileWriter.SaveReportsToCSV(studentData);
+            }
+
         }
 
         public void SetDetailsInForm(int _studentCount)
         {
             currentStudentCounter = _studentCount;
             totalStudents = studentData.Count;
-            recordNumLbl.Text = "Record #: " + (currentStudentCounter + 1)+ "/" + totalStudents;
 
-            studentNameField.Text = studentData[_studentCount].StudentName;
-            SetGradeDropDownFromCSV(studentData[_studentCount].CurrentGrade, currentGradeDropDown);
-            SetGradeDropDownFromCSV(studentData[_studentCount].TargetGrade, targetGradeDropDown);
+            if (currentStudentCounter < totalStudents)
+            {
+                recordNumLbl.Text = "Record #: " + (currentStudentCounter + 1) + "/" + totalStudents;
+
+                studentNameField.Text = studentData[_studentCount].StudentName;
+                SetGradeDropDownFromCSV(studentData[_studentCount].CurrentGrade, currentGradeDropDown);
+                SetGradeDropDownFromCSV(studentData[_studentCount].TargetGrade, targetGradeDropDown);
+            }
+            else
+            {
+                MessageBox.Show("All Student Reports Created.", "Complete", MessageBoxButtons.OK);
+            }
 
         }
 

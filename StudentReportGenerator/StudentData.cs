@@ -17,6 +17,7 @@ namespace StudentReportGenerator
         private Grade currentGrade;
         private Grade targetGrade;
         private string yearGroup;
+        private string report;
 
         public string StudentName
         {
@@ -67,6 +68,19 @@ namespace StudentReportGenerator
             set
             {
                 yearGroup = value;
+            }
+        }
+
+        public string Report
+        {
+            get
+            {
+                return report;
+            }
+
+            set
+            {
+                report = value;
             }
         }
 
