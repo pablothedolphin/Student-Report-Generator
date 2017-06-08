@@ -15,6 +15,7 @@ namespace StudentReportGenerator
     class CSVReadWriter
     {
 
+        //reads student data from a csv and converts to studentData objs
         public List<StudentData> GetStudentDataFromCSV(string _csvName)
         {
             //ignores first line of headers in file and converts other rows into student data objs
@@ -25,6 +26,7 @@ namespace StudentReportGenerator
             return data;
         }
 
+        //saves report text to a text file in location of user's choice
         public void SaveReportsToTextFile(List<string> _studentReports)
         {
             SaveFileDialog mySaveFileDialog = new SaveFileDialog();
@@ -51,6 +53,7 @@ namespace StudentReportGenerator
             }
         }
 
+        //saves student data plus report to a csv file in the location of users choice
         public void SaveReportsToCSV(List<StudentData> _studentDataList)
         {
             SaveFileDialog mySaveFileDialog = new SaveFileDialog();
@@ -77,6 +80,7 @@ namespace StudentReportGenerator
             }
         }
 
+        //converts studentDataObjs to strings for writing to csv
         public List<string> ConvertStudentDataToStrings(List<StudentData> _studentDataObjs)
         {
             List<string> studentDataStrings = new List<string>();
@@ -95,6 +99,7 @@ namespace StudentReportGenerator
             return studentDataStrings;
         }
 
+        //handle special notation in report strings e.g. , and \n
         public String Escape(String s)
         {
             if (s != null)
