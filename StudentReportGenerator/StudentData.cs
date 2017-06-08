@@ -18,12 +18,64 @@ namespace StudentReportGenerator
         private Grade targetGrade;
         private string yearGroup;
 
+        public string StudentName
+        {
+            get
+            {
+                return studentName;
+            }
+
+            set
+            {
+                studentName = value;
+            }
+        }
+
+        public Grade CurrentGrade
+        {
+            get
+            {
+                return currentGrade;
+            }
+
+            set
+            {
+                currentGrade = value;
+            }
+        }
+
+        public Grade TargetGrade
+        {
+            get
+            {
+                return targetGrade;
+            }
+
+            set
+            {
+                targetGrade = value;
+            }
+        }
+
+        public string YearGroup
+        {
+            get
+            {
+                return yearGroup;
+            }
+
+            set
+            {
+                yearGroup = value;
+            }
+        }
+
         public StudentData(string _name, Grade _current, Grade _target, string _year)
         {
-            studentName = _name;
-            currentGrade = _current;
-            targetGrade = _target;
-            yearGroup = _year;
+            StudentName = _name;
+            CurrentGrade = _current;
+            TargetGrade = _target;
+            YearGroup = _year;
         }
 
         public StudentData()
@@ -35,10 +87,10 @@ namespace StudentReportGenerator
         {
             string[] values = csvLine.Split(',');
             StudentData data = new StudentData();
-            data.studentName = values[0];
-            data.currentGrade = data.SetGrade(values[1]);
-            data.targetGrade = data.SetGrade(values[2]);
-            data.yearGroup = values[3];
+            data.StudentName = values[0];
+            data.CurrentGrade = data.SetGrade(values[1]);
+            data.TargetGrade = data.SetGrade(values[2]);
+            data.YearGroup = values[3];
 
             return data;
         }

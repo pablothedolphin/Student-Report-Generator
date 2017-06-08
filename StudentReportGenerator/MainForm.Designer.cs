@@ -40,8 +40,8 @@
             this.female = new System.Windows.Forms.RadioButton();
             this.studentNameField = new System.Windows.Forms.TextBox();
             this.reportPreviewLabel = new System.Windows.Forms.Label();
-            this.currentGrade = new System.Windows.Forms.ComboBox();
-            this.targetGrade = new System.Windows.Forms.ComboBox();
+            this.currentGradeDropDown = new System.Windows.Forms.ComboBox();
+            this.targetGradeDropDown = new System.Windows.Forms.ComboBox();
             this.targetGradeLabel = new System.Windows.Forms.Label();
             this.currentReport = new System.Windows.Forms.RichTextBox();
             this.engagement = new System.Windows.Forms.ComboBox();
@@ -187,12 +187,12 @@
             this.reportPreviewLabel.TabIndex = 100;
             this.reportPreviewLabel.Text = "Preview Report: ";
             // 
-            // currentGrade
+            // currentGradeDropDown
             // 
-            this.currentGrade.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.currentGrade.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.currentGrade.FormattingEnabled = true;
-            this.currentGrade.Items.AddRange(new object[] {
+            this.currentGradeDropDown.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.currentGradeDropDown.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.currentGradeDropDown.FormattingEnabled = true;
+            this.currentGradeDropDown.Items.AddRange(new object[] {
             "4C",
             "4B",
             "4A",
@@ -211,19 +211,19 @@
             "9C",
             "9B",
             "9A"});
-            this.currentGrade.Location = new System.Drawing.Point(484, 60);
-            this.currentGrade.Name = "currentGrade";
-            this.currentGrade.Size = new System.Drawing.Size(62, 21);
-            this.currentGrade.TabIndex = 2;
-            this.currentGrade.SelectedIndexChanged += new System.EventHandler(this.SetCurrentGrade);
-            this.currentGrade.Click += new System.EventHandler(this.SetCurrentGrade);
+            this.currentGradeDropDown.Location = new System.Drawing.Point(484, 60);
+            this.currentGradeDropDown.Name = "currentGradeDropDown";
+            this.currentGradeDropDown.Size = new System.Drawing.Size(62, 21);
+            this.currentGradeDropDown.TabIndex = 2;
+            this.currentGradeDropDown.SelectedIndexChanged += new System.EventHandler(this.SetCurrentGrade);
+            this.currentGradeDropDown.Click += new System.EventHandler(this.SetCurrentGrade);
             // 
-            // targetGrade
+            // targetGradeDropDown
             // 
-            this.targetGrade.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.targetGrade.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.targetGrade.FormattingEnabled = true;
-            this.targetGrade.Items.AddRange(new object[] {
+            this.targetGradeDropDown.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.targetGradeDropDown.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.targetGradeDropDown.FormattingEnabled = true;
+            this.targetGradeDropDown.Items.AddRange(new object[] {
             "4C",
             "4B",
             "4A",
@@ -242,12 +242,12 @@
             "9C",
             "9B",
             "9A"});
-            this.targetGrade.Location = new System.Drawing.Point(650, 60);
-            this.targetGrade.Name = "targetGrade";
-            this.targetGrade.Size = new System.Drawing.Size(62, 21);
-            this.targetGrade.TabIndex = 3;
-            this.targetGrade.SelectedIndexChanged += new System.EventHandler(this.SetTargetGrade);
-            this.targetGrade.Click += new System.EventHandler(this.SetTargetGrade);
+            this.targetGradeDropDown.Location = new System.Drawing.Point(650, 60);
+            this.targetGradeDropDown.Name = "targetGradeDropDown";
+            this.targetGradeDropDown.Size = new System.Drawing.Size(62, 21);
+            this.targetGradeDropDown.TabIndex = 3;
+            this.targetGradeDropDown.SelectedIndexChanged += new System.EventHandler(this.SetTargetGrade);
+            this.targetGradeDropDown.Click += new System.EventHandler(this.SetTargetGrade);
             // 
             // targetGradeLabel
             // 
@@ -364,8 +364,8 @@
             this.Controls.Add(addReport);
             this.Controls.Add(this.targetGradeLabel);
             this.Controls.Add(currentGradeLabel);
-            this.Controls.Add(this.targetGrade);
-            this.Controls.Add(this.currentGrade);
+            this.Controls.Add(this.targetGradeDropDown);
+            this.Controls.Add(this.currentGradeDropDown);
             this.Controls.Add(this.reportPreviewLabel);
             this.Controls.Add(studentNameLabel);
             this.Controls.Add(this.studentNameField);
@@ -386,8 +386,8 @@
         private System.Windows.Forms.RadioButton female;
         private System.Windows.Forms.TextBox studentNameField;
         private System.Windows.Forms.Label reportPreviewLabel;
-        private System.Windows.Forms.ComboBox currentGrade;
-        private System.Windows.Forms.ComboBox targetGrade;
+        private System.Windows.Forms.ComboBox currentGradeDropDown;
+        private System.Windows.Forms.ComboBox targetGradeDropDown;
         private System.Windows.Forms.Label targetGradeLabel;
         private System.Windows.Forms.RichTextBox currentReport;
         private System.Windows.Forms.ComboBox engagement;

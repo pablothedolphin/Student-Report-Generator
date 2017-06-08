@@ -37,14 +37,18 @@ namespace StudentReportGenerator
         
 
         private List<StudentData> studentData = new List<StudentData>();
+        private int currentStudentCounter;
+        private int totalStudents;
 
         public MainForm()
         {
             InitializeComponent();
-            currentGrade.SelectedIndex = 0;
-            targetGrade.SelectedIndex = 0;
+            currentGradeDropDown.SelectedIndex = 0;
+            targetGradeDropDown.SelectedIndex = 0;
             engagement.SelectedIndex = 0;
             behaviour1.SelectedIndex = 0;
+            currentStudentCounter = 0;
+            totalStudents = 0;
         }
 
         private void SetStudentName(object sender, EventArgs e)
@@ -77,7 +81,7 @@ namespace StudentReportGenerator
 
         private void SetCurrentGrade(object sender, EventArgs e)
         {
-            currentGradeText = currentGrade.SelectedItem.ToString();
+            currentGradeText = currentGradeDropDown.SelectedItem.ToString();
 
             studentCurrentGrade = Grade.Level4C;
 
@@ -104,7 +108,7 @@ namespace StudentReportGenerator
 
         private void SetTargetGrade(object sender, EventArgs e)
         {
-            targetGradeText = targetGrade.SelectedItem.ToString();
+            targetGradeText = targetGradeDropDown.SelectedItem.ToString();
 
             studentTargetGrade = Grade.Level4C;
 
@@ -211,6 +215,83 @@ namespace StudentReportGenerator
             }
         }
 
+        public void SetDetailsInForm(int _studentCount)
+        {
+            currentStudentCounter = _studentCount;
+            totalStudents = studentData.Count;
+            recordNumLbl.Text = "Record #: " + (currentStudentCounter + 1)+ "/" + totalStudents;
+
+            studentNameField.Text = studentData[_studentCount].StudentName;
+            SetGradeDropDownFromCSV(studentData[_studentCount].CurrentGrade, currentGradeDropDown);
+            SetGradeDropDownFromCSV(studentData[_studentCount].TargetGrade, targetGradeDropDown);
+
+        }
+
+        public void SetGradeDropDownFromCSV(Grade _studentGrade, ComboBox _dropDown)
+        {
+            switch(_studentGrade)
+            {
+                case Grade.DEFAULT:
+                    _dropDown.SelectedIndex = -1; 
+                    break;
+                case Grade.Level4C:
+                    _dropDown.SelectedIndex = 0;
+                    break;
+                case Grade.Level4B:
+                    _dropDown.SelectedIndex = 1;
+                    break;
+                case Grade.Level4A:
+                    _dropDown.SelectedIndex = 2;
+                    break;
+                case Grade.Level5C:
+                    _dropDown.SelectedIndex = 3;
+                    break;
+                case Grade.Level5B:
+                    _dropDown.SelectedIndex = 4;
+                    break;
+                case Grade.Level5A:
+                    _dropDown.SelectedIndex = 5;
+                    break;
+                case Grade.Level6C:
+                    _dropDown.SelectedIndex = 6;
+                    break;
+                case Grade.Level6B:
+                    _dropDown.SelectedIndex = 7;
+                    break;
+                case Grade.Level6A:
+                    _dropDown.SelectedIndex = 8;
+                    break;
+                case Grade.Level7C:
+                    _dropDown.SelectedIndex = 9;
+                    break;
+                case Grade.Level7B:
+                    _dropDown.SelectedIndex = 10;
+                    break;
+                case Grade.Level7A:
+                    _dropDown.SelectedIndex = 11;
+                    break;
+                case Grade.Level8C:
+                    _dropDown.SelectedIndex = 12;
+                    break;
+                case Grade.Level8B:
+                    _dropDown.SelectedIndex = 13;
+                    break;
+                case Grade.Level8A:
+                    _dropDown.SelectedIndex = 14;
+                    break;
+                case Grade.Level9C:
+                    _dropDown.SelectedIndex = 15;
+                    break;
+                case Grade.Level9B:
+                    _dropDown.SelectedIndex = 16;
+                    break;
+                case Grade.Level9A:
+                    _dropDown.SelectedIndex = 17;
+                    break;
+
+            }
+        }
+
         private void SelectFileBtn_Click(object sender, EventArgs e)
         {
             //opens 'select file' box
@@ -225,14 +306,17 @@ namespace StudentReportGenerator
                 {
                     CSVReadWriter csvReader = new CSVReadWriter();
                     studentData = csvReader.GetStudentDataFromCSV(filePath);
+
+                    if(studentData != null && studentData.Count > 0)
+                    {
+                        SetDetailsInForm(currentStudentCounter);
+                    }
                 }
                 else
                 {
                     MessageBox.Show("Select a .csv file", "Wrong File Type Selected", MessageBoxButtons.OK);
                 }
             }
-        }
-
-
+       }
     }
 }
